@@ -28,3 +28,10 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
+
+-- multi-cursor
+vim.g.VM_maps = {
+  ['Find Under'] = '<C-d>',
+  ['Find Subword Under'] = '<C-d>'
+}
+

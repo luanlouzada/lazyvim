@@ -10,8 +10,8 @@ return {
         { name = 'path' }
       }),
       mapping = {
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<C-Space>'] = cmp.mapping.select_next_item(),
+        ['<C-S-Space>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }
     })
