@@ -1,10 +1,3 @@
-function _G.AskCopilotChat()
-  local input = vim.fn.input("Ask CopilotChat: ")
-  if input ~= "" then
-    vim.cmd("CopilotChat " .. input)
-  end
-end
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -16,6 +9,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "plugins.copilot-chat" },
     {
       import = "lazyvim.plugins.extras.lsp.none-ls",
       config = function()

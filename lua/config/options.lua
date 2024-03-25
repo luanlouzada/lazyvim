@@ -8,3 +8,4 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.winbar = "%=%m %f"
+opt.scrolloff = 8
