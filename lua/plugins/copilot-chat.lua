@@ -21,6 +21,11 @@ return {
         row = 30,
       },
     },
+    mappings = {
+      show_diff = {
+        normal = "gZd",
+      },
+    },
     keys = {
       {
         "<leader>ccq",
@@ -36,16 +41,22 @@ return {
         "<leader>ccd",
         function()
           local clipboardContent = vim.fn.getreg("+") -- Pega o conteúdo do clipboard
-          if clipboardContent ~= "" then
+          local currentBuffer = vim.api.nvim_get_current_buf() -- Pega o identificador do buffer atual
+          local bufferContent = table.concat(vim.api.nvim_buf_get_lines(currentBuffer, 0, -1, false), "\n") -- Concatena as linhas do buffer
+
+          -- Combina o conteúdo do clipboard com o conteúdo do buffer
+          local combinedContent = "Clipboard: " .. clipboardContent .. "\nBuffer:\n" .. bufferContent
+
+          if clipboardContent ~= "" or bufferContent ~= "" then
             require("CopilotChat").ask(
-              "Fix diagnostic: " .. clipboardContent,
+              "Fix diagnostic: " .. combinedContent,
               { selection = require("CopilotChat.select").none }
             )
           else
-            print("Clipboard está vazio!")
+            print("Clipboard e buffer estão vazios!")
           end
         end,
-        desc = "CopilotChat - Fix diagnostic com conteúdo copiado",
+        desc = "CopilotChat - Fix diagnostic com conteúdo copiado e do buffer",
       },
       {
         "<leader>cce",
