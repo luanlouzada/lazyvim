@@ -1,12 +1,9 @@
 return {
-  -- add tokyonight
-  { "folke/tokyonight.nvim" },
-
-  -- Configure LazyVim to load tokyonight
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight",
-    },
+    "embark-theme/vim",
+    as = "embark", -- Renomeia o plugin para 'embark'
+    config = function()
+      vim.cmd("colorscheme embark") -- Configura o embark como o tema atual
+    end,
   },
 }
