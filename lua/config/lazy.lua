@@ -9,15 +9,21 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "plugins.copilot-chat" },
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "plugins" },
     {
       import = "lazyvim.plugins.extras.lsp.none-ls",
       config = function()
         local nls = require("null-ls")
         nls.setup({
           sources = {
-            nls.builtins.diagnostics.bandit, -- Adicionando Bandit
-            -- Aqui você pode adicionar outras fontes do none-ls, se necessário
+            nls.builtins.diagnostics.bandit,
+            nls.builtins.formatting.black,
+            nls.builtins.formatting.isort,
+            nls.builtins.formatting.stylua,
+            nls.builtins.formatting.prettier,
+            nls.builtins.diagnostics.markdownlint,
+            nls.builtins.diagnostics.flake8,
           },
         })
       end,

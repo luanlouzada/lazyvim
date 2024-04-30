@@ -13,3 +13,6 @@ vim.keymap.set("n", "<C-v>", '"+p', { noremap = true, silent = true })
 
 -- Colar do clipboard no modo de inserção com Ctrl+V
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true })
+
+-- Copiar o path do arquivo atual
+vim.keymap.set("n", "<leader>cwd", ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })

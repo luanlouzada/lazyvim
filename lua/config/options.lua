@@ -9,3 +9,4 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.winbar = "%=%m %f"
 opt.scrolloff = 8
+opt.spelllang:append("pt")
