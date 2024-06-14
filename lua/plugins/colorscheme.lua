@@ -37,7 +37,7 @@ return {
     config = function()
       require("gruvbox").setup({
         contrast = "hard",
-        palette_overrides = { dark0_hard = "#0E1018", bright_red = "#C6200E" },
+        palette_overrides = { dark0_hard = "#0E1018", bright_red = "#C6200E", dark1 = "#0E1018" },
         overrides = {
           Comment = { fg = "#81878f", italic = true, bold = true },
           Define = { link = "GruvboxPurple" },
