@@ -68,19 +68,52 @@ local function set_theme()
     transparent_mode = false,
   }
 
-  if window_class == "Gnome-terminal" then
-    gruvbox_config.transparent_mode = true
-  end
+  local catppuccin_config = {
+    flavour = "macchiato",
+    transparent_background = true,
+    integrations = {
+      aerial = true,
+      alpha = true,
+      cmp = true,
+      dashboard = true,
+      flash = true,
+      gitsigns = true,
+      headlines = true,
+      illuminate = true,
+      indent_blankline = { enabled = true },
+      leap = true,
+      lsp_trouble = true,
+      mason = true,
+      markdown = true,
+      mini = true,
+      native_lsp = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
+      navic = { enabled = true, custom_bg = "lualine" },
+      neotest = true,
+      neotree = true,
+      noice = true,
+      notify = true,
+      semantic_tokens = true,
+      telescope = true,
+      treesitter = true,
+      treesitter_context = true,
+      which_key = true,
+    },
+  }
 
-  local success, err = pcall(function()
+  if window_class == "Gnome-terminal" then
+    require("catppuccin").setup(catppuccin_config)
+    vim.cmd("colorscheme catppuccin")
+  else
     require("gruvbox").setup(gruvbox_config)
     vim.cmd("colorscheme gruvbox")
-  end)
-
-  if success then
-    print("Set colorscheme to gruvbox")
-  else
-    print("Failed to set colorscheme gruvbox: " .. err)
   end
 end
 
@@ -91,5 +124,10 @@ return {
     config = function()
       set_theme()
     end,
+  },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin",
   },
 }
