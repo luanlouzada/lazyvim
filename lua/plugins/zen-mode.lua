@@ -14,11 +14,11 @@ return {
       plugins = {
         options = {
           enabled = true,
-          laststatus = 0, -- Desativa a barra de status no Zen Mode
+          laststatus = 0,
         },
         kitty = {
           enabled = true,
-          font = "+4", -- Aumenta a fonte no Kitty em 4 pontos
+          font = "+4",
         },
       },
       on_open = function(win)
@@ -28,12 +28,11 @@ return {
         vim.fn.system("kitty @ set-spacing padding=15")
       end,
     },
-  },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<leader>z"] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
+    keys = {
+      {
+        "<leader>z",
+        "<cmd>ZenMode<cr>",
+        desc = "Toggle Zen Mode",
       },
     },
   },
