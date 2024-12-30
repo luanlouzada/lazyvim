@@ -11,7 +11,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/Documents/SecondBrain",
+          path = "~/Documentos/SecondBrain",
         },
       },
       templates = {
@@ -51,9 +51,7 @@ return {
           opts = { noremap = true, buffer = true },
         },
       },
-      ui = {
-        hl_groups = require("rose-pine.plugins.obsidian"),
-      },
+      ui = {},
     },
   },
 }

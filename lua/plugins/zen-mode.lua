@@ -30,7 +30,7 @@ return {
     },
     keys = {
       {
-        "<leader>z",
+        "<leader>zz",
         "<cmd>ZenMode<cr>",
         desc = "Toggle Zen Mode",
       },
